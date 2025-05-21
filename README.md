@@ -1,12 +1,12 @@
 ## 🖥 프로젝트 소개
-- 주제 : 스마트워치를 이용한 고등학생 자기관리 Web
+- 주제 : 스마트워치를 이용한 고등학생 자기관리 WEB
 - 팀명 : 너의하루는 (YourDay)
 - 인원 : 4명
 - 개발 기간 : 2022.10 ~ 2022.11 (약 3주)
 
 
 ## ⚙ 개발 환경
-- Web : Javascript, React (v17.0.2)
+- Web : JavaScript, React (v17.0.2)
 - Server : Node.js (v16.17.1), Flask
 - DataBase : MySQL
 - MachineLearning : Python (v3.9.12)
