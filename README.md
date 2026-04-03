@@ -49,4 +49,48 @@
 
 
 ## 🔁 프로젝트 설치 및 실행
-https://www.notion.so/YourDay-164ffb5eb35680b08da2f7e298a9d769?pvs=4
+node 16.17.1 설치
+
+nvm 설치
+
+nvm install 16.17.1
+
+nvm use 16.17.1
+
+npm install 실행(node_modules 설치)
+
+MySQL 연결
+
+프로젝트 실행
+
+터미널1
+
+node 서버 실행
+
+node app.js
+
+터미널2
+
+react 실행
+
+npm start
+
+Git 연동
+
+Flask 서버 
+
+Python 설치 https://www.python.org/
+
+"Add Python to PATH" 체크박스 선택
+
+"Customize Installation" 선택 후 기본 옵션으로 진행
+
+VSCode Python Extension 설치
+
+VSCode Python Interpreter ⇒ 설치된 python 선택
+
+[Fileupload.py](http://Fileupload.py) 라이브러리 설치
+
+pip install flask, pandas, pymysql, sqlalchemy
+
+오른쪽 상단 실행 버튼
