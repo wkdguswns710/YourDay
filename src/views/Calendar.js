@@ -187,7 +187,7 @@ const Calendar = () => {
           );
         }
       } else {
-        dayArr.push(<div className="weekday"></div>);
+        dayArr.push(<div key={`empty-${nowDay}`} className="weekday"></div>);
       }
     }
     return dayArr;
@@ -203,6 +203,7 @@ const Calendar = () => {
     for(let i=0;i<btn.length;i++){
     btn[i].style.backgroundImage='none';
     }
+    if (!user.id) return;
     axios.post("http://localhost:3001/uploadDate",{
       id:user.id
     })
@@ -245,7 +246,7 @@ const Calendar = () => {
     setModalIsOpen(false);
   }
 
-  let user = JSON.parse(localStorage.getItem("user"))
+  let user = JSON.parse(localStorage.getItem("user")) || { id: "" };
   // 로컬스토리지, 세션스토리지
   // 키-밸류 스토리지의 형태
   // 로컬 스토리지의 데이터는 사용자가 지우지 않는 이상 계속 브라우저에 남아 있음 

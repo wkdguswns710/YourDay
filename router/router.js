@@ -8,12 +8,12 @@ const path = require("path");
 
 let conn = mysql.createConnection({
   // DB 정보
-  host: "project-db-stu.ddns.net",
-  user: "campus_h_1024_4",
-  password: "smhrd4",
-  port: "3307",
-  database: "campus_h_1024_4",
-  dateStrings:"date"
+  host: "localhost",
+  user: "mysql",
+  password: "1234",
+  port: "3306",
+  database: "yourday",
+  dateStrings: "date"
 });
 
 // 메인페이지 심박수
@@ -22,11 +22,10 @@ router.post('/Dashboard1', (req,res) => {
     let sql = 'SELECT DATE(vital_time) date, ROUND(avg(vital_v),1) heart FROM vital WHERE vital_time BETWEEN DATE_ADD(NOW(), INTERVAL -7 day ) AND NOW() GROUP BY date'
         conn.query(sql, (err, data) => {
         if(!err) {
-          console.log(1)
-          console.log("성공")
+            console.log("심박수 쿼리 성공")
             res.send(data)
         } else {
-          console.log(err)
+            console.log(err)
             res.send(err)
         }
     })
@@ -39,11 +38,10 @@ router.post('/Dashboard2', (req,res) => {
   let sql = 'SELECT DATE(stress_time) st, ROUND(avg(stress_v),1) stress FROM test_vital_ch WHERE stress_time BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK ) AND NOW() GROUP BY st'
       conn.query(sql, (err, data) => {
         if(!err) {
-          console.log(1)
-          console.log("성공")
+            console.log("심박변위 쿼리 성공")
             res.send(data)
         } else {
-          console.log(err)
+            console.log(err)
             res.send(err)
         }
     })
@@ -54,11 +52,11 @@ router.post('/Dashboard3', (req,res) => {
     let sql = 'SELECT DATE(extime_time) et, sum(extime_v) ext FROM extime WHERE extime_time BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK ) AND NOW() GROUP BY et'
     conn.query(sql, (err, data) => {
       if(!err) {
-        console.log("성공")
+          console.log("운동량 쿼리 성공")
           res.send(data)
       } else {
-        console.log(err)
-        res.send(err)
+          console.log(err)
+          res.send(err)
       }
    })
 });
@@ -69,11 +67,10 @@ router.post('/Dashboard7', (req,res) => {
   let sql = 'SELECT DATE(rest_time) rt, ROUND(avg(rest_v),1) rest FROM rest_vital WHERE rest_time BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK ) AND NOW() GROUP BY rt'
       conn.query(sql, (err, data) => {
         if(!err) {
-          console.log(1)
-          console.log("성공")
+            console.log("심박수 쿼리 성공")
             res.send(data)
         } else {
-          console.log(err)
+            console.log(err)
             res.send(err)
         }
     })
@@ -84,13 +81,12 @@ router.post('/Dashboard4', (req,res) => {
   let sql = 'SELECT DATE(Date) AS `dayhappy`, avg(sleep) dsleep, avg(goback) dgoback, avg(study) dstudy, avg(eat) deat, avg(exe) dexe, avg(play) dplay FROM test_happy WHERE DATE(Date) = DATE(NOW()) GROUP BY Date'
   conn.query(sql, (err, data) => {
     if(!err) {
-      console.log("test : ", data)
-      console.log("성공")
+        console.log("오늘 만족도(막대) 쿼리 성공")
         // res.send(data)
         res.json(data)
     } else {
-      console.log(err)
-      res.send(err)
+        console.log(err)
+        res.send(err)
     }
  })
 });
@@ -100,12 +96,11 @@ router.post('/Dashboard5', (req,res) => {
   let sql = 'SELECT DATE(Date) dayhappy, avg(sleep) ysleep, avg(goback) ygoback, avg(study) ystudy, avg(eat) yeat, avg(exe) yexe, avg(play) yplay FROM test_happy WHERE DATE(Date) = CURDATE() - INTERVAL 1 DAY GROUP BY dayhappy'
   conn.query(sql, (err, data) => {
     if(!err) {
-      console.log(1)
-      console.log("성공")
+        console.log("어제 만족도(막대) 쿼리 성공")
         res.send(data)
     } else {
-      console.log(err)
-      res.send(err)
+        console.log(err)
+        res.send(err)
     }
  })
 });
@@ -115,11 +110,11 @@ router.post('/Dashboard6', (req,res) => {
   let sql = 'SELECT DATE(Date) weekhappy, avg(sleep) wsleep, avg(goback) wgoback, avg(study) wstudy, avg(eat) weat, avg(exe) wexe, avg(play) wplay FROM test_happy WHERE Date BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK ) AND NOW() GROUP BY `weekhappy`'
   conn.query(sql, (err, data) => {
     if(!err) {
-      console.log("파이 성공 : ", data)
+        console.log("주간 만족도(파이) 쿼리 성공")
         res.send(data)
     } else {
-      console.log(err)
-      res.send(err)
+        console.log(err)
+        res.send(err)
     }
  })
 });

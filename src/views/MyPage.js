@@ -39,7 +39,7 @@ function MyPage() {
     setWodalIsOpen(false)
   }
 
-  let user = JSON.parse(localStorage.getItem("user"))   
+  let user = JSON.parse(localStorage.getItem("user")) || { id: "", pw: "", nick: "", gender: "", birth: "", joindate: "", phoneNumber: "" };
   // JSON.parse : json 문자 구문을 js에서 사용할 수 잇는 객체 타입으로 변환
 
   // 마이페이지 - 이름 및 성별 변경

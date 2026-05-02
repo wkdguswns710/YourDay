@@ -127,23 +127,25 @@ function Main({match}) {
       axios.post("http://localhost:3001/Dashboard1",{})
       .then((data)=>{
         let heartsum = 0;
-        for(let i=0; i<data.data.length; i++){
-          heartsum += data.data[i].heart;
-        }
-        avgheart = heartsum/7
-        heartM = data.data[0].heart;
-        heartT = data.data[1].heart;
-        heartW = data.data[2].heart;
-        heartTh = data.data[3].heart;
-        heartF = data.data[4].heart;
-        heartSa = data.data[5].heart;
-        heartSu = data.data[6].heart;
 
-        setVital(data.data)
-        setVital_time(data.data.Vital_time)
-        
-      }).catch(()=>{
-        console.log("심박수 에러");
+        if(data.data.length > 0) {
+          for(let i=0; i<data.data.length; i++){
+            heartsum += data.data[i].heart;
+          }
+          avgheart = heartsum/7
+          heartM = data.data[0].heart;
+          heartT = data.data[1].heart;
+          heartW = data.data[2].heart;
+          heartTh = data.data[3].heart;
+          heartF = data.data[4].heart;
+          heartSa = data.data[5].heart;
+          heartSu = data.data[6].heart;
+
+          setVital(data.data)
+          setVital_time(data.data.Vital_time)
+        }
+      }).catch((e)=>{
+        console.log("심박수 에러", e);
       })
     }
     useEffect(()=>{
@@ -154,17 +156,18 @@ function Main({match}) {
     const sim_ch = async ()=>{
       axios.post("http://localhost:3001/Dashboard2",{})
       .then((data)=>{
-        chM = data.data[0].stress;
-        chT = data.data[1].stress;
-        chW = data.data[2].stress;
-        chTh = data.data[3].stress;
-        chF = data.data[4].stress;
-        chSa = data.data[5].stress;
-        chSu = data.data[6].stress;
+        if(data.data.length > 0) {
+          chM = data.data[0].stress;
+          chT = data.data[1].stress;
+          chW = data.data[2].stress;
+          chTh = data.data[3].stress;
+          chF = data.data[4].stress;
+          chSa = data.data[5].stress;
+          chSu = data.data[6].stress;
 
-        setCh(data.data)
-        setCh_time(data.data.Ch_time)
-
+          setCh(data.data)
+          setCh_time(data.data.Ch_time)
+        }
       }).catch(()=>{
         console.log("심박변이 에러");
       })
@@ -178,23 +181,24 @@ function Main({match}) {
       axios.post("http://localhost:3001/Dashboard7",{})
       .then((data)=>{
         let restsum = 0;
-
-        for(let i=0; i<data.data.length; i++){
-          restsum += data.data[i].rest;
-        }
-        avgrest = restsum/7
-        restM = data.data[0].rest;
-        restT = data.data[1].rest;
-        restW = data.data[2].rest;
-        restTh = data.data[3].rest;
-        restF = data.data[4].rest;
-        restSa = data.data[5].rest;
-        restSu = data.data[6].rest;
-
-
-        setRest(data.data)
-        setRest_time(data.data.rt)
         
+        if(data.data.length > 0) {
+          for(let i=0; i<data.data.length; i++){
+            restsum += data.data[i].rest;
+          }
+          avgrest = restsum/7
+          restM = data.data[0].rest;
+          restT = data.data[1].rest;
+          restW = data.data[2].rest;
+          restTh = data.data[3].rest;
+          restF = data.data[4].rest;
+          restSa = data.data[5].rest;
+          restSu = data.data[6].rest;
+
+
+          setRest(data.data)
+          setRest_time(data.data.rt)
+        }
       }).catch(()=>{
         console.log("안정시 심박수 에러");
       })
@@ -208,21 +212,22 @@ function Main({match}) {
     const extime = async ()=>{
       axios.post("http://localhost:3001/Dashboard3",{})
       .then((data)=>{
-        for(let i=0; i<data.data.length; i++){
-          extsum += data.data[i].ext;
+        if(data.data.length > 0) {
+          for(let i=0; i<data.data.length; i++){
+            extsum += data.data[i].ext;
+          }
+          avgext = extsum/7
+          extM = data.data[0].ext;
+          extT = data.data[1].ext;
+          extW = data.data[2].ext;
+          extTh = data.data[3].ext;
+          extF = data.data[4].ext;
+          extSa = data.data[5].ext;
+          extSu = data.data[6].ext;
+
+          setExt(data.data)
+          setExt_time(data.data.Ext_time)
         }
-        avgext = extsum/7
-        extM = data.data[0].ext;
-        extT = data.data[1].ext;
-        extW = data.data[2].ext;
-        extTh = data.data[3].ext;
-        extF = data.data[4].ext;
-        extSa = data.data[5].ext;
-        extSu = data.data[6].ext;
-
-        setExt(data.data)
-        setExt_time(data.data.Ext_time)
-
       }).catch(()=>{
         console.log("운동시간 에러");
       })
@@ -235,16 +240,16 @@ function Main({match}) {
     const dayhappy = async ()=>{
       axios.post("http://localhost:3001/Dashboard4",{})
       .then((data)=>{
-        
-        dsleep = data.data[0].dsleep;
-        dgoback = data.data[0].dgoback;
-        dstudy = data.data[0].dstudy;
-        deat = data.data[0].deat;
-        dexe = data.data[0].dexe;
-        dplay = data.data[0].dplay;
-        
-        setDdata(data.data)
-
+        if(data.data.length > 0) {
+          dsleep = data.data[0].dsleep;
+          dgoback = data.data[0].dgoback;
+          dstudy = data.data[0].dstudy;
+          deat = data.data[0].deat;
+          dexe = data.data[0].dexe;
+          dplay = data.data[0].dplay;
+          
+          setDdata(data.data)
+        }
       }).catch(()=>{
         console.log("만족도 에러");
       })
@@ -257,15 +262,16 @@ function Main({match}) {
     const yhappy = async ()=>{
       axios.post("http://localhost:3001/Dashboard5",{})
       .then((data)=>{       
-        ysleep = data.data[0].ysleep;
-        ygoback = data.data[0].ygoback;
-        ystudy = data.data[0].ystudy;
-        yeat = data.data[0].yeat;
-        yexe = data.data[0].yexe;
-        yplay = data.data[0].yplay;
-        
-        setYdata(data.data)
-
+        if(data.data.length > 0) {
+          ysleep = data.data[0].ysleep;
+          ygoback = data.data[0].ygoback;
+          ystudy = data.data[0].ystudy;
+          yeat = data.data[0].yeat;
+          yexe = data.data[0].yexe;
+          yplay = data.data[0].yplay;
+          
+          setYdata(data.data)
+        }
       }).catch(()=>{
         console.log("어제 만족도 에러");
       })
@@ -278,19 +284,17 @@ function Main({match}) {
     const whappy = async ()=>{
       axios.post("http://localhost:3001/Dashboard6",{})
       .then((data)=>{
-        console.log(data.data[0])
-        wtotal =Number(data.data[0].wsleep)+Number(data.data[0].wgoback)+Number(data.data[0].wstudy)+Number(data.data[0].weat)+Number(data.data[0].wexe)+Number(data.data[0].wplay);
-        wsleep = Number(data.data[0].wsleep)/wtotal*100;
-        wgoback = Number(data.data[0].wgoback)/wtotal*100;
-        wstudy = Number(data.data[0].wstudy)/wtotal*100;
-        weat = Number(data.data[0].weat)/wtotal*100;
-        wexe = Number(data.data[0].wexe)/wtotal*100;
-        wplay = Number(data.data[0].wplay)/wtotal*100+0.000000000000008;
-        
-        setYdata(data.data)
-
-        console.log(wsleep);
-
+        if(data.data.length > 0) {
+          wtotal =Number(data.data[0].wsleep)+Number(data.data[0].wgoback)+Number(data.data[0].wstudy)+Number(data.data[0].weat)+Number(data.data[0].wexe)+Number(data.data[0].wplay);
+          wsleep = Number(data.data[0].wsleep)/wtotal*100;
+          wgoback = Number(data.data[0].wgoback)/wtotal*100;
+          wstudy = Number(data.data[0].wstudy)/wtotal*100;
+          weat = Number(data.data[0].weat)/wtotal*100;
+          wexe = Number(data.data[0].wexe)/wtotal*100;
+          wplay = Number(data.data[0].wplay)/wtotal*100+0.000000000000008;
+          
+          setYdata(data.data)
+        }
       }).catch(()=>{
         console.log("주간 만족도 평균 에러");
       })
@@ -725,7 +729,7 @@ function Main({match}) {
                   />
                 </div>
                 <div className="legend">
-                  <div class="fas fa-circle text-info"></div>수면 
+                  <i className="fas fa-circle text-info"></i>수면
                   <i className="fas fa-circle text-danger"></i>출퇴근
                   <i className="fas fa-circle text-warning"></i>업무
                   <br></br>

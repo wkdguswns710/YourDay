@@ -20,7 +20,7 @@ function History() {
   }
   
   // 변수
-  let user = JSON.parse(localStorage.getItem("user"));
+  let user = JSON.parse(localStorage.getItem("user")) || { id: "" };
   const days = new Date();
   const day = days.getDate() < 10 ? "0" + days.getDate() : days.getDate();
   const today = days.getFullYear() + "-" + (days.getMonth() + 1) + "-" + day;

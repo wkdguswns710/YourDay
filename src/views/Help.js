@@ -128,13 +128,14 @@ function Help() {
               </Card.Header>
               <Card.Body>                
                 <table border="">
+                  <tbody>
                   <tr>
                     <td className="font" align="center">No.</td>
                     <td className="font" align="center">제 목</td>
-                  </tr>                
+                  </tr>
                   
                   <tr>
-                    <td className="font" align="center" rowspan="2">1</td>
+                    <td className="font" align="center" rowSpan="2">1</td>
                     <td className="font" align="center" onClick={toggleBtn1} >Q. 회원탈퇴는 어디에서 하나요?</td>
                   </tr>
 
@@ -150,7 +151,7 @@ function Help() {
                   </tr>
                   
                   <tr>
-                    <td className="font" align="center" rowspan="2">2</td>
+                    <td className="font" align="center" rowSpan="2">2</td>
                     <td className="font" align="center" onClick={toggleBtn2}>Q. 비밀번호 변경은 어디에서 하나요?</td>
                   </tr>
 
@@ -169,7 +170,7 @@ function Help() {
                   </tr>                  
                   
                   <tr>
-                    <td className="font" align="center" rowspan="2">3</td>
+                    <td className="font" align="center" rowSpan="2">3</td>
                     <td className="font" align="center" onClick={toggleBtn3}>Q. 구글아이디가 있는데 구글아이디로 로그인이 가능하나요?</td>
                   </tr>
 
@@ -178,7 +179,7 @@ function Help() {
                   </tr>                  
                   
                   <tr>
-                    <td className="font" align="center" rowspan="2">4</td>
+                    <td className="font" align="center" rowSpan="2">4</td>
                     <td className="font" align="center" onClick={toggleBtn4}>Q. 결과값을 도출하는 근거가 무엇인가요?</td>
                   </tr>
 
@@ -187,7 +188,7 @@ function Help() {
                   </tr>                  
                   
                   <tr>
-                    <td className="font" align="center" rowspan="2">5</td>
+                    <td className="font" align="center" rowSpan="2">5</td>
                     <td className="font" align="center" onClick={toggleBtn5}>Q. 스마트워치의 데이터를 옮기는 방법이 어떻게 되나요?</td>
                   </tr>
 
@@ -197,13 +198,14 @@ function Help() {
                   </tr>        
                   
                   <tr>
-                    <td className="font" align="center" rowspan="2">6</td>
+                    <td className="font" align="center" rowSpan="2">6</td>
                     <td className="font" align="center" onClick={toggleBtn6}>Q. 건강관리기능을 가지고 있는데 체지방이나 근육량도 알 수 있나요?</td>
                   </tr>
 
                   <tr>
                     <td className="font" style={{display:'none'}} align="center" id="btn6" onClick={toggleBtn6}>현재 저희가 받은 데이터로 알 수 있는 정보는<br></br> 심박수, 심박변위, 운동량, 행복도, 스트레스지수 입니다.<br></br>앞으로 자신에 대한 더 많은 정보를 알 수 있도록 발전하는<br></br> "너의 하루는"이 되겠습니다.</td>
-                  </tr>          
+                  </tr>
+                  </tbody>
                 </table>
               </Card.Body>
               <Card.Footer>
@@ -222,20 +224,20 @@ function Help() {
               </Card.Header>
 
               <Card.Body>
-                <br></br><h>① 회원가입 페이지 ▶ 회원가입 진행</h>
+                <br></br><h6>① 회원가입 페이지 ▶ 회원가입 진행</h6>
                 <br></br><img style={{width:"600px"}} src={img6}/><br></br>
-                <br></br><h>② 로그인 페이지 ▶ 로그인</h>
+                <br></br><h6>② 로그인 페이지 ▶ 로그인</h6>
                 <br></br><img style={{width:"600px"}} src={img7}/><br></br>
-                <br></br><h>③ DAY_WRITE 페이지 ▶ 데이터입력을 원하는 날짜 선택</h>    
+                <br></br><h6>③ DAY_WRITE 페이지 ▶ 데이터입력을 원하는 날짜 선택</h6>    
                 <br></br><img style={{width:"600px"}} src={img8}/><br></br>
-                <br></br><h>④ 데이터 입력</h>
+                <br></br><h6>④ 데이터 입력</h6>
                 <br></br><img style={{width:"600px"}} src={img9}/><br></br>
-                <br></br><h>⑤ 데이터 입력 확인</h>
+                <br></br><h6>⑤ 데이터 입력 확인</h6>
                 <br></br><img style={{width:"600px"}} src={img10}/><br></br>
-                <br></br><h>⑥-① 메인페이지 ▶ 솔루션 및 그래프 확인</h>
+                <br></br><h6>⑥-① 메인페이지 ▶ 솔루션 및 그래프 확인</h6>
                 <br></br><img style={{width:"600px"}} src={img11}/>
-                <br></br><h>⑥-② 솔루션 클릭 ▶ 관련자료제공</h>
-                <br></br><h>⑦ Day_Data 페이지 ▶ 일별 데이터 조회</h>
+                <br></br><h6>⑥-② 솔루션 클릭 ▶ 관련자료제공</h6>
+                <br></br><h6>⑦ Day_Data 페이지 ▶ 일별 데이터 조회</h6>
                 <br></br><img style={{width:"600px"}} src={img12}/>
               </Card.Body>
               <Card.Footer>

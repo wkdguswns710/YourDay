@@ -89,7 +89,7 @@ VSCode Python Extension 설치
 
 VSCode Python Interpreter ⇒ 설치된 python 선택
 
-[Fileupload.py](http://Fileupload.py) 라이브러리 설치
+Fileupload.py 라이브러리 설치
 
 pip install flask, pandas, pymysql, sqlalchemy
 
