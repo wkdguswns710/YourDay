@@ -165,7 +165,7 @@ def upload_file():
         print(df_upload)
 
         # MySQL 연결
-        engine = create_engine("mysql+mysqldb://campus_h_1024_4:smhrd4@project-db-stu.ddns.net:3307/campus_h_1024_4")
+        engine = create_engine("mysql+pymysql://mysql:1234@localhost:3306/yourday")
         engine.connect()
 
         # DB 데이터 전송
